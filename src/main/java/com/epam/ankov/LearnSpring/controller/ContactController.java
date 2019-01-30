@@ -29,6 +29,11 @@ public class ContactController {
         return contactRepository.findAll();
     }
 
+    @GetMapping(value = {"list"})
+    public Map<String, String> list1(@RequestParam Map<String, String> allRequestParams) {
+        return allRequestParams;
+    }
+
     // fetch('/contacts', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ name: 'sdvsdgsdfgbsgb'})}).then(console.log)
     @PostMapping
     public void create(@RequestBody Contact contact) {

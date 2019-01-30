@@ -1,9 +1,7 @@
 package com.epam.ankov.LearnSpring.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Contact {
@@ -14,6 +12,11 @@ public class Contact {
     private String name;
     private String email;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "location_id")
+    private Location location;
+
+    private Date dateOfBirth;
 
     public Integer getId() {
         return id;
@@ -39,4 +42,19 @@ public class Contact {
         this.email = email;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 }
