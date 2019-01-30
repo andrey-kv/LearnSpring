@@ -18,6 +18,9 @@ public class Contact {
 
     private Date dateOfBirth;
 
+    public Contact() {
+    }
+
     public Integer getId() {
         return id;
     }

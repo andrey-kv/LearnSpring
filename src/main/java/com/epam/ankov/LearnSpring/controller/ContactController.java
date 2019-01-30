@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.swing.*;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 @RestController
@@ -51,14 +52,16 @@ public class ContactController {
     @PutMapping("{id}")
     public Contact update(@PathVariable String id, @RequestBody Contact modifiedContact) {
         Contact contact = getContact(id);
-        if (modifiedContact.getName() != null) {
-            contact.setName(modifiedContact.getName());
-        }
-        if (modifiedContact.getEmail() != null) {
-            contact.setEmail(modifiedContact.getEmail());
-        }
+        setValue(contact::setName, modifiedContact.getName());
+        setValue(contact::setEmail, modifiedContact.getEmail());
         contactRepository.save(contact);
         return contact;
+    }
+
+    private void setValue(Consumer<String> setter, String name) {
+        if (name != null) {
+            setter.accept(name);
+        }
     }
 
     // fetch('/contacts/3', { method: 'DELETE' }).then(console.log)

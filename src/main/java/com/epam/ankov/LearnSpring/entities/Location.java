@@ -13,6 +13,9 @@ public class Location {
 
     private String name;
 
+    public Location() {
+    }
+
     public Integer getId() {
         return id;
     }
