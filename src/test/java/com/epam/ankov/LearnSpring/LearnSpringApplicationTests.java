@@ -1,6 +1,6 @@
 package com.epam.ankov.LearnSpring;
 
-import com.epam.ankov.LearnSpring.controller.MessageController;
+import com.epam.ankov.LearnSpring.controller.ContactController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,8 +16,7 @@ public class LearnSpringApplicationTests {
 
 	@Test
     public void testList() {
-        MessageController mc = new MessageController();
-        mc.list();
+        ContactController mc = new ContactController();
     }
 }
 

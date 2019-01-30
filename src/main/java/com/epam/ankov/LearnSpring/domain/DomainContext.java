@@ -1,6 +1,8 @@
 package com.epam.ankov.LearnSpring.domain;
 
+import com.epam.ankov.LearnSpring.entities.Contact;
 import com.epam.ankov.LearnSpring.exceptions.NotFoundException;
+import com.epam.ankov.LearnSpring.repositories.ContactRepository;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
@@ -24,12 +26,17 @@ public class DomainContext {
         }});
     }};
     private int counter = messages.size() + 1;
+    private final ContactRepository contactRepository;
 
-    public List<Map<String, String>> getAll() {
-        return messages;
+    public DomainContext(ContactRepository contactRepository) {
+        this.contactRepository = contactRepository;
     }
 
-    public Map<String, String> getMessageById(String id) {
+    public Iterable<Contact> getAll() {
+        return contactRepository.findAll();
+    }
+
+    public Map<String, String> getContactById(String id) {
         return getMessage(id);
     }
 
