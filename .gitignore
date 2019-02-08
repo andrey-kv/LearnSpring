@@ -3,9 +3,22 @@
 
 ### STS ###
 .apt_generated
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+
+# dependencies
+/node_modules
+
+# profiling files
+chrome-profiler-events.json
+speed-measure-plugin.json
+
+.project
 .classpath
 .factorypath
-.project
 .settings
 .springBeans
 .sts4-cache
@@ -23,3 +36,26 @@
 /nbdist/
 /.nb-gradle/
 /build/
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+

@@ -7,10 +7,8 @@ import com.epam.ankov.LearnSpring.repositories.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.*;
-import java.util.*;
+import java.util.Map;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 @RestController
 @RequestMapping("contacts")
@@ -19,12 +17,14 @@ public class ContactController {
     @Autowired
     private ContactRepository contactRepository;
 
+    @Autowired
     private final DomainContext domainContext;
 
     public ContactController() {
         domainContext = new DomainContext(contactRepository);
     }
 
+    // @CrossOrigin
     @GetMapping
     public Iterable<Contact> list() {
         return contactRepository.findAll();
